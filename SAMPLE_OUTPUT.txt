@@ -1,0 +1,18 @@
+WELCOME TO THE STUDENT STUDY-HOURS AND PERFORMANCE DASHBOARD
+
+MAIN MENU
+1. View student records
+2. View performance dashboard
+3. Add a student record
+4. Generate charts
+5. Export summary as CSV
+6. Exit
+
+Example dashboard values with the supplied 12 sample records:
+Total students          : 12
+Average study hours     : 4.25 hours
+Average assessment score: 69.42 / 100
+Highest score           : 96.0 (Student 12)
+Lowest score            : 38.0 (Student 1)
+Students scoring 40+    : 11
+Students below 40       : 1

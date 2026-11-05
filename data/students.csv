@@ -1,0 +1,14 @@
+student_id,student_name,study_hours,score
+S001,Student 1,1.5,38.0
+S002,Student 2,2.0,45.0
+S003,Student 3,2.5,52.0
+S004,Student 4,3.0,58.0
+S005,Student 5,3.5,63.0
+S006,Student 6,4.0,68.0
+S007,Student 7,4.5,72.0
+S008,Student 8,5.0,78.0
+S009,Student 9,5.5,83.0
+S010,Student 10,6.0,88.0
+S011,Student 11,6.5,92.0
+S012,Student 12,7.0,96.0
+1234,Rohit,5.0,89.0
