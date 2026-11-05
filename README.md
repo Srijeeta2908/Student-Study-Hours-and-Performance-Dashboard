@@ -50,9 +50,10 @@ If `python` does not work on Windows, try `py app.py`.
 1. View student records
 2. View performance dashboard
 3. Add a student record
-4. Generate charts
-5. Export summary as CSV
-6. Exit
+4. Delete a student record
+5. Generate charts
+6. Export summary as CSV
+7. Exit
 
 ## Input file
 `data/students.csv` contains sample anonymised records with these columns:
