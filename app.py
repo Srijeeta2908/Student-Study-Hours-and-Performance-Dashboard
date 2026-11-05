@@ -155,7 +155,51 @@ def add_record():
     updated = pd.concat([df, new_row], ignore_index=True)
     updated.to_csv(DATA_FILE, index=False)
     print("Student record added successfully.")
+    
+def delete_record():
+    """Delete a student record using the student ID."""
+    df = load_data()
 
+    print("\nDELETE A STUDENT RECORD")
+    print("-" * 50)
+
+    if df.empty:
+        print("No student records available to delete.")
+        return
+
+    # Display all student records
+    print(df[["student_id", "student_name"]].to_string(index=False))
+    print("-" * 50)
+
+    student_id = input("Enter the Student ID to delete: ").strip()
+
+    if not student_id:
+        print("Student ID cannot be blank.")
+        return
+
+    # Check whether the student ID exists
+    if student_id not in df["student_id"].values:
+        print("Student ID not found. No record was deleted.")
+        return
+
+    # Display the selected student's details
+    student = df[df["student_id"] == student_id].iloc[0]
+
+    print("\nStudent details:")
+    print(f"Student ID   : {student['student_id']}")
+    print(f"Student Name : {student['student_name']}")
+    print(f"Study Hours  : {student['study_hours']}")
+    print(f"Score        : {student['score']}")
+
+    # Ask for confirmation
+    confirm = input("\nAre you sure you want to delete this student? (yes/no): ").strip().lower()
+
+    if confirm == "yes":
+        updated = df[df["student_id"] != student_id]
+        updated.to_csv(DATA_FILE, index=False)
+        print("\nStudent record deleted successfully!")
+    else:
+        print("\nDeletion cancelled. Student record is safe.")
 
 def create_charts(df):
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -225,9 +269,10 @@ def main():
         print("1. View student records")
         print("2. View performance dashboard")
         print("3. Add a student record")
-        print("4. Generate charts")
-        print("5. Export summary as CSV")
-        print("6. Exit")
+        print("4. Delete a student record")
+        print("5. Generate charts")
+        print("6. Export summary as CSV")
+        print("7. Exit")
 
         choice = input("Enter your choice (1-6): ").strip()
         try:
@@ -239,10 +284,12 @@ def main():
             elif choice == "3":
                 add_record()
             elif choice == "4":
-                create_charts(df)
+                delete_record()
             elif choice == "5":
-                export_summary(df)
+                create_charts(df)
             elif choice == "6":
+                export_summary(df)
+            elif choice == "7":
                 print("Thank you for using the dashboard. Goodbye!")
                 break
             else:
